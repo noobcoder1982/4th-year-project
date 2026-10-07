@@ -1,0 +1,35 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Intermediate training checkpoints & backups
+qwen-fact-checker/checkpoint-*/
+qwen-fact-checker-backup/
+
+# PyTorch / Training temporary logs & state
+*.pt.temp
+*.bin.temp
+wandb/
+runs/
+events.out.tfevents.*
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs & temp artifacts
+*.log
+scratch/
+tmp/

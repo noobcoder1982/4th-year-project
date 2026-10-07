@@ -1,0 +1,839 @@
+/* =============================================================================
+   TruthLens - Modern Ultra-Readable Design System & UI Theme
+   Typography: Plus Jakarta Sans & JetBrains Mono (Google Fonts)
+   Color Palette: Deep Obsidian, Slate, Electric Indigo, Emerald, Rose, Amber
+   ============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* --- Root Variables & Theme Tokens --- */
+:root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --bg-page: #080B11;
+    --bg-surface: #0F172A;
+    --bg-surface-elevated: #162035;
+    --bg-surface-hover: #1E293B;
+    
+    --border-subtle: rgba(255, 255, 255, 0.09);
+    --border-medium: rgba(255, 255, 255, 0.16);
+    --border-accent: rgba(99, 102, 241, 0.4);
+    
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    
+    --accent-indigo: #6366F1;
+    --accent-cyan: #06B6D4;
+    --accent-emerald: #10B981;
+    --accent-rose: #F43F5E;
+    --accent-amber: #F59E0B;
+}
+
+/* --- Global Reset & High-Readability Overrides --- */
+body, html {
+    background-color: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans) !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    letter-spacing: -0.01em !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+.gradio-container {
+    max-width: 1500px !important;
+    margin: 0 auto !important;
+    padding: 24px 32px !important;
+    font-family: var(--font-sans) !important;
+    background: transparent !important;
+}
+
+/* --- Brand Header Navigation Bar --- */
+#brand, #brand-header {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.85) 100%) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 18px !important;
+    padding: 24px 32px !important;
+    margin-bottom: 24px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    backdrop-filter: blur(16px) !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6) !important;
+}
+
+.brand-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(79, 70, 229, 0.4);
+}
+
+.brand-name, .brand-title {
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+}
+
+.brand-tagline {
+    font-size: 14px !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+    margin-top: 4px !important;
+}
+
+.brand-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge-pill-tech {
+    font-family: var(--font-mono) !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    color: #A5B4FC !important;
+    background: rgba(99, 102, 241, 0.15) !important;
+    border: 1px solid rgba(99, 102, 241, 0.3) !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.badge-pill-status {
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    color: #34D399 !important;
+    background: rgba(16, 185, 129, 0.15) !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.pulse-dot, .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10B981;
+    box-shadow: 0 0 8px #10B981;
+    animation: pulseGlow 2s infinite;
+    display: inline-block;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* --- Two-Column Layout --- */
+.main-layout {
+    display: grid !important;
+    grid-template-columns: 42% 58% !important;
+    gap: 28px !important;
+    min-height: calc(100vh - 120px) !important;
+}
+
+@media (max-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.left-panel, .right-panel {
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* --- Left Side: Inputs --- */
+.left-heading, .input-header-title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 6px !important;
+}
+
+.left-description, .input-header-desc {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 20px !important;
+}
+
+.article-label {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 8px !important;
+}
+
+/* Tabs */
+.gradio-tabs {
+    border: none !important;
+}
+
+div.tab-nav {
+    border-bottom: 1px solid var(--border-subtle) !important;
+    background: transparent !important;
+    gap: 6px !important;
+}
+
+button.tab-nav-button {
+    font-family: var(--font-sans) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--text-muted) !important;
+    padding: 10px 18px !important;
+    border-radius: 10px 10px 0 0 !important;
+    border: none !important;
+    background: transparent !important;
+    transition: all 0.2s ease !important;
+}
+
+button.tab-nav-button:hover {
+    color: var(--text-primary) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+}
+
+button.tab-nav-button.selected {
+    color: #FFFFFF !important;
+    background: rgba(99, 102, 241, 0.18) !important;
+    border-bottom: 2px solid var(--accent-indigo) !important;
+}
+
+/* Textarea & Inputs */
+textarea, input[type="text"] {
+    background: #0B1120 !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans) !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    border-radius: 12px !important;
+    padding: 16px 18px !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+textarea:focus, input[type="text"]:focus {
+    border-color: var(--accent-indigo) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+    outline: none !important;
+}
+
+.input-hint, .input-hint-box {
+    font-size: 13.5px !important;
+    color: var(--text-muted) !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px dashed var(--border-subtle) !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    margin-top: 10px !important;
+    line-height: 1.5 !important;
+}
+
+/* Primary Action Button */
+#analyze-button, button.primary-action-btn {
+    background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%) !important;
+    color: #FFFFFF !important;
+    font-family: var(--font-sans) !important;
+    font-size: 15.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    padding: 16px 28px !important;
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4) !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-top: 18px !important;
+    width: 100% !important;
+}
+
+#analyze-button:hover, button.primary-action-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5) !important;
+    filter: brightness(1.1) !important;
+}
+
+/* --- Analysis Header & Progress --- */
+.analysis-header, .analysis-progress-card {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 16px !important;
+    padding: 20px 24px !important;
+    margin-bottom: 22px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.analysis-title, .progress-title-text {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+}
+
+.analysis-subtitle, .progress-sub-text {
+    font-size: 14px !important;
+    color: var(--text-muted) !important;
+    margin-top: 4px !important;
+}
+
+.progress-counter, .progress-counter-badge {
+    font-family: var(--font-mono) !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    color: #38BDF8 !important;
+    background: rgba(6, 182, 212, 0.12) !important;
+    border: 1px solid rgba(6, 182, 212, 0.3) !important;
+    padding: 8px 16px !important;
+    border-radius: 10px !important;
+}
+
+/* --- Sentence Result Cards --- */
+.claim-card, .claim-card-modern {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 16px !important;
+    padding: 24px 28px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.2s ease !important;
+}
+
+.claim-card:hover, .claim-card-modern:hover {
+    border-color: var(--border-medium) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+.claim-card.checking, .claim-card-modern.checking {
+    border-left: 4px solid var(--accent-indigo) !important;
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.06) 0%, var(--bg-surface) 100%) !important;
+}
+
+.claim-card.supported, .claim-card-modern.card-supported {
+    border-left: 4px solid var(--accent-emerald) !important;
+}
+
+.claim-card.refuted, .claim-card-modern.card-refuted {
+    border-left: 4px solid var(--accent-rose) !important;
+}
+
+.claim-card.partial, .claim-card-modern.card-partial {
+    border-left: 4px solid var(--accent-amber) !important;
+}
+
+.claim-card.uncertain, .claim-card-modern.card-uncertain {
+    border-left: 4px solid #94A3B8 !important;
+}
+
+/* Card Top & Badges */
+.claim-top, .card-top-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-bottom: 16px !important;
+}
+
+.claim-number, .sentence-index-tag {
+    font-family: var(--font-mono) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--text-muted) !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+}
+
+.claim-top-badges, .badge-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Verdict Badges (Large, Clear & Bold) */
+.verdict-tag, .verdict-pill-modern {
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    letter-spacing: 0.02em !important;
+}
+
+.verdict-tag.supported, .verdict-pill-modern.v-supported {
+    background: rgba(16, 185, 129, 0.16) !important;
+    color: #34D399 !important;
+    border: 1px solid rgba(16, 185, 129, 0.4) !important;
+}
+
+.verdict-tag.refuted, .verdict-pill-modern.v-refuted {
+    background: rgba(244, 63, 94, 0.16) !important;
+    color: #FB7185 !important;
+    border: 1px solid rgba(244, 63, 94, 0.4) !important;
+}
+
+.verdict-tag.partial, .verdict-pill-modern.v-partial {
+    background: rgba(245, 158, 11, 0.16) !important;
+    color: #FBBF24 !important;
+    border: 1px solid rgba(245, 158, 11, 0.4) !important;
+}
+
+.verdict-tag.uncertain, .verdict-pill-modern.v-uncertain {
+    background: rgba(148, 163, 184, 0.16) !important;
+    color: #E2E8F0 !important;
+    border: 1px solid rgba(148, 163, 184, 0.35) !important;
+}
+
+/* Discourse Memory & Context Pills */
+.memory-pill-modern {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.12) 100%) !important;
+    border: 1px solid rgba(99, 102, 241, 0.35) !important;
+    border-radius: 10px !important;
+    padding: 10px 16px !important;
+    margin: 12px 0 16px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    font-size: 14px !important;
+    color: #C7D2FE !important;
+}
+
+.memory-icon {
+    font-size: 18px !important;
+    flex-shrink: 0 !important;
+}
+
+.memory-title {
+    font-weight: 700 !important;
+    color: #818CF8 !important;
+    text-transform: uppercase !important;
+    font-size: 12px !important;
+    letter-spacing: 0.05em !important;
+    margin-right: 6px !important;
+}
+
+.memory-text {
+    color: var(--text-secondary) !important;
+    line-height: 1.5 !important;
+}
+
+.memory-text strong {
+    color: #FFFFFF !important;
+}
+
+/* Original Sentence Quote Block (Large & Ultra-Readable) */
+.claim-quote, .sentence-quote-box {
+    background: rgba(11, 17, 32, 0.75) !important;
+    border-left: 3px solid var(--accent-indigo) !important;
+    border-radius: 0 12px 12px 0 !important;
+    padding: 16px 20px !important;
+    margin-bottom: 20px !important;
+    font-size: 16.5px !important;
+    line-height: 1.7 !important;
+    font-weight: 500 !important;
+    color: #FFFFFF !important;
+}
+
+.claim-text {
+    color: #FFFFFF !important;
+    font-size: 16.5px !important;
+    line-height: 1.7 !important;
+}
+
+.quote-mark {
+    color: var(--accent-indigo) !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+
+.plag-highlight {
+    background: rgba(245, 158, 11, 0.25) !important;
+    border-bottom: 2px solid var(--accent-amber) !important;
+    padding: 0 3px !important;
+    border-radius: 2px !important;
+    color: #FEF3C7 !important;
+}
+
+/* Badges for Pills */
+.hal-pill {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    padding: 5px 12px !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+.sim-pill {
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    padding: 5px 12px !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.plag-pill {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    padding: 5px 12px !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* Section Labels */
+.section-label {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    margin: 18px 0 10px 0 !important;
+}
+
+/* Atomic Claims Breakdown */
+.breakdown, .atomic-section {
+    margin: 16px 0 !important;
+    padding: 16px 20px !important;
+    background: rgba(15, 23, 42, 0.5) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 12px !important;
+}
+
+.atomic-claim, .atomic-claim-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.atomic-claim:last-child, .atomic-claim-item:last-child {
+    border-bottom: none !important;
+}
+
+.atomic-number, .atomic-index {
+    font-family: var(--font-mono) !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: #818CF8 !important;
+    background: rgba(99, 102, 241, 0.15) !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.atomic-content, .atomic-body {
+    flex: 1 !important;
+}
+
+.atomic-text {
+    font-size: 15px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    margin-bottom: 6px !important;
+}
+
+/* AI Fact Analysis */
+.analysis-text, .explanation-card, .analysis-item {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 12px !important;
+    padding: 16px 20px !important;
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Ranked Evidence Sources */
+.sources {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.source-item {
+    background: rgba(11, 17, 32, 0.65) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 10px !important;
+    padding: 16px 20px !important;
+}
+
+.source-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-bottom: 8px !important;
+}
+
+.source-title {
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+}
+
+.source-body {
+    font-size: 13.5px !important;
+    line-height: 1.6 !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 10px !important;
+}
+
+.source-footer {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    font-size: 13px !important;
+}
+
+.source-link {
+    color: #38BDF8 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+
+.source-link:hover {
+    text-decoration: underline !important;
+}
+
+.source-domain {
+    color: var(--text-muted) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 12px !important;
+}
+
+.cred-badge {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    padding: 3px 10px !important;
+    border-radius: 6px !important;
+}
+
+.cred-badge.cred-high {
+    background: rgba(16, 185, 129, 0.15) !important;
+    color: #34D399 !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+.cred-badge.cred-med {
+    background: rgba(245, 158, 11, 0.15) !important;
+    color: #FBBF24 !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+}
+
+.cred-badge.cred-low {
+    background: rgba(244, 63, 94, 0.15) !important;
+    color: #FB7185 !important;
+    border: 1px solid rgba(244, 63, 94, 0.3) !important;
+}
+
+/* --- Executive Trust Score Hero Container --- */
+.trust-hero-container, .trust-hero-card {
+    background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%) !important;
+    border: 1px solid rgba(99, 102, 241, 0.35) !important;
+    border-radius: 20px !important;
+    padding: 28px 32px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.7) !important;
+}
+
+.trust-hero-main, .trust-hero-top {
+    display: flex !important;
+    align-items: center !important;
+    gap: 24px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 24px !important;
+}
+
+.trust-score-badge-circle, .trust-badge-large {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4) !important;
+    background: #0B0F19 !important;
+    border: 3px solid var(--accent-indigo) !important;
+    flex-shrink: 0 !important;
+}
+
+.trust-score-val, .score-val {
+    font-family: var(--font-mono) !important;
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    line-height: 1 !important;
+}
+
+.trust-score-tier, .score-tier {
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    color: #38BDF8 !important;
+    letter-spacing: 0.05em !important;
+    margin-top: 4px !important;
+}
+
+.trust-hero-info, .trust-hero-heading {
+    flex: 1 !important;
+}
+
+.trust-hero-label-row, .trust-rating-title {
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.trust-hero-desc, .trust-rating-summary {
+    font-size: 15px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+}
+
+/* 4-Pillar Progress Grid */
+.trust-signals-grid, .pillars-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+}
+
+@media (max-width: 900px) {
+    .trust-signals-grid, .pillars-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+.trust-signal-card, .pillar-box {
+    background: rgba(15, 23, 42, 0.7) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 12px !important;
+    padding: 16px 18px !important;
+}
+
+.signal-header, .pillar-title-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 10px !important;
+}
+
+.signal-pct, .pillar-score-val {
+    font-family: var(--font-mono) !important;
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+}
+
+.signal-progress-track, .pillar-progress-track {
+    height: 7px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+    margin-bottom: 10px !important;
+}
+
+.signal-progress-fill, .pillar-progress-fill {
+    height: 100% !important;
+    border-radius: 4px !important;
+    transition: width 0.8s ease !important;
+}
+
+.fill-fact { background: linear-gradient(90deg, #10B981, #06B6D4) !important; }
+.fill-cred { background: linear-gradient(90deg, #6366F1, #38BDF8) !important; }
+.fill-ground { background: linear-gradient(90deg, #8B5CF6, #EC4899) !important; }
+.fill-orig { background: linear-gradient(90deg, #F59E0B, #10B981) !important; }
+
+.signal-footer, .pillar-footer-note {
+    font-size: 12px !important;
+    color: var(--text-muted) !important;
+}
+
+/* Empty State Modern */
+.empty-state, .empty-state-modern {
+    min-height: 480px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 40px !important;
+    border: 2px dashed rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    background: rgba(15, 23, 42, 0.3) !important;
+}
+
+.empty-icon, .empty-state-icon {
+    font-size: 42px !important;
+    color: #6366F1 !important;
+    margin-bottom: 16px !important;
+}
+
+.empty-title, .empty-state-title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 8px !important;
+}
+
+.empty-text, .empty-state-desc {
+    font-size: 14.5px !important;
+    color: var(--text-muted) !important;
+    max-width: 440px !important;
+    line-height: 1.6 !important;
+}
