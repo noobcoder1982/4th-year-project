@@ -2081,6 +2081,7 @@ def verify_article_stream(
         checking_cards += create_checking_card(sentence, index)
 
     yield f"""
+{CSS_STYLE_TAG}
 <div class="analysis-header">
     <div>
         <div class="analysis-title">
@@ -2352,6 +2353,7 @@ def verify_article_stream(
             )
 
         yield f"""
+{CSS_STYLE_TAG}
 <div class="analysis-header">
     <div>
         <div class="analysis-title">
@@ -2456,6 +2458,7 @@ def verify_article_stream(
     print("========================================")
 
     yield f"""
+{CSS_STYLE_TAG}
 {summary}
 
 {report_html}
@@ -2659,6 +2662,8 @@ if CSS_FILE.exists():
 else:
     CSS = ""
 
+CSS_STYLE_TAG = f"<style>\n{CSS}\n</style>"
+
 
 
 # ============================================================
@@ -2675,7 +2680,8 @@ with gr.Blocks(
     # --------------------------------------------------------
 
     gr.HTML(
-        """
+        f"""
+        {CSS_STYLE_TAG}
         <div id="brand-header">
             <div class="brand-left">
                 <div class="brand-icon-box">🔍</div>
@@ -2864,7 +2870,8 @@ with gr.Blocks(
 
 
             results_output = gr.HTML(
-                value="""
+                value=f"""
+                {CSS_STYLE_TAG}
                 <div class="empty-state-modern">
                     <div class="empty-state-icon">✦</div>
                     <div class="empty-state-title">Ready for Context-Aware Verification</div>
@@ -2908,9 +2915,7 @@ with gr.Blocks(
 if __name__ == "__main__":
 
     app.launch(
-
         inbrowser=True,
-
-        css=CSS
-
+        css=CSS,
+        head=CSS_STYLE_TAG
     )
